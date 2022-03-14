@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -65,20 +64,20 @@
 <body>
 <div class="main">
     <h1>
-        Unfortunately, <strong>%</strong> of Spring Break has already passed.
+        Unfortunately, <strong>${value}</strong> of Spring Break has already passed.
     </h1>
 </div>
 <div class="bottom">
     <p>
         Created by Kason Gu in 2022.
     </p>
-    <button onclick="">
+    <button onclick="github()">
         View source on Github
     </button>
 </div>
 <script>
     function github() {
-        open("")
+        open("https://github.com/croissant676/BreakTracker")
     }
 </script>
 </body>
