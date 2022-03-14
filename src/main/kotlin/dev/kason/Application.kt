@@ -3,6 +3,7 @@ package dev.kason
 import freemarker.cache.ClassTemplateLoader
 import io.ktor.application.call
 import io.ktor.application.install
+import io.ktor.application.log
 import io.ktor.freemarker.FreeMarker
 import io.ktor.freemarker.FreeMarkerContent
 import io.ktor.response.respond
@@ -17,7 +18,7 @@ import java.time.LocalDateTime
 import java.time.LocalTime
 
 fun main() {
-    embeddedServer(Netty, port = 8080, host = "0.0.0.0") {
+    embeddedServer(Netty, port = (System.getenv("PORT") ?: "5000").toInt(), host = "0.0.0.0") {
         install(FreeMarker) {
             templateLoader = ClassTemplateLoader(this::class.java.classLoader, "templates")
         }
@@ -33,7 +34,14 @@ fun main() {
                 get {
                     val currentDuration = Duration.between(start, LocalDateTime.now())
                     val percentage = currentDuration.seconds * 100.0 / duration.seconds
-                    return@get call.respond(FreeMarkerContent("template.ftl", mapOf("value" to "$percentage%")))
+                    call.respond(
+                        FreeMarkerContent(
+                            "template.ftl", mapOf(
+                                "value" to "$percentage%",
+                                "hours" to (currentDuration.seconds / 3600.0).toString()
+                            )
+                        )
+                    )
                 }
             }
         }

@@ -16,17 +16,23 @@
             padding: 10%;
             transition: 0.6s ease-out;
         }
+
         .main:hover {
             background: #c3e4ff;
         }
+
         strong {
             color: orange;
+        }
+
+        h6 {
+            font-size: 20px;
         }
 
         .bottom {
             padding: 1%;
             display: flex;
-            width:100%;
+            width: 100%;
             height: 100%;
             justify-content: center;
             align-items: center;
@@ -65,6 +71,10 @@
         <#--noinspection FtlReferencesInspection-->
         Unfortunately, <strong>${value}</strong> of Spring Break has already passed.
     </h1>
+    <h6>
+        <#--noinspection FtlReferencesInspection-->
+        This is <strong>${hours}</strong> out of 232.67 hours
+    </h6>
 </div>
 <div class="bottom">
     <p>
