@@ -12,7 +12,6 @@ import io.ktor.routing.routing
 import io.ktor.server.engine.embeddedServer
 import io.ktor.server.netty.Netty
 import java.time.Duration
-import java.time.Instant
 import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.LocalTime
@@ -23,7 +22,7 @@ fun main() {
             templateLoader = ClassTemplateLoader(this::class.java.classLoader, "templates")
         }
         val start = LocalTime
-            .of(2, 35, 0)
+            .of(14, 35, 0)
             .atDate(LocalDate.of(2022, 3, 11))
         val end = LocalTime
             .of(7, 15, 0)

@@ -36,7 +36,6 @@
             padding: 5px;
             width: auto;
             font-size: 20px;
-            height: 50%;
             transition: 0.6s ease-out;
             background: white;
         }
@@ -48,7 +47,6 @@
             font-family: 'Dubai', sans-serif;
             text-align: center;
             font-size: 20px;
-            height: 50%;
             background: white;
             border: white solid;
             transition: 0.6s ease-out;
@@ -64,6 +62,7 @@
 <body>
 <div class="main">
     <h1>
+        <#--noinspection FtlReferencesInspection-->
         Unfortunately, <strong>${value}</strong> of Spring Break has already passed.
     </h1>
 </div>
