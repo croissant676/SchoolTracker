@@ -3,7 +3,6 @@ package dev.kason
 import freemarker.cache.ClassTemplateLoader
 import io.ktor.application.call
 import io.ktor.application.install
-import io.ktor.application.log
 import io.ktor.freemarker.FreeMarker
 import io.ktor.freemarker.FreeMarkerContent
 import io.ktor.response.respond
@@ -23,11 +22,11 @@ fun main() {
             templateLoader = ClassTemplateLoader(this::class.java.classLoader, "templates")
         }
         val start = LocalTime
-            .of(14, 35, 0)
-            .atDate(LocalDate.of(2022, 3, 11))
-        val end = LocalTime
             .of(7, 15, 0)
             .atDate(LocalDate.of(2022, 3, 21))
+        val end = LocalTime
+            .of(14, 35, 0)
+            .atDate(LocalDate.of(2022, 5, 25))
         val duration = Duration.between(start, end)
         routing {
             route("/") {
@@ -38,7 +37,8 @@ fun main() {
                         FreeMarkerContent(
                             "template.ftl", mapOf(
                                 "value" to "$percentage%",
-                                "hours" to (currentDuration.seconds / 3600.0).toString()
+                                "hours" to (currentDuration.seconds / 3600.0).toString(),
+                                "total" to (duration.seconds / 3600.0).toString()
                             )
                         )
                     )

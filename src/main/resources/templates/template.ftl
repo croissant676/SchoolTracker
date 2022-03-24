@@ -69,11 +69,11 @@
 <div class="main">
     <h1>
         <#--noinspection FtlReferencesInspection-->
-        Unfortunately, <strong>${value}</strong> of Spring Break has already passed.
+        Fortunately, <strong>${value}</strong> of duration between the end of Spring break and the start of summer has already passed.
     </h1>
     <h6>
         <#--noinspection FtlReferencesInspection-->
-        This is <strong>${hours}</strong> out of 232.67 hours
+        This is <strong>${hours}</strong> out of <strong>${total}</strong> hours
     </h6>
 </div>
 <div class="bottom">
