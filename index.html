@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Semester Break</title>
+    <title>Semester time tracker thing</title>
     <style>
         body {
             background: white;
@@ -96,7 +96,7 @@
     setInterval(function () {
         const current = new Date();
         let millisSinceStart = current - start;
-        document.getElementById("hours").innerText = (millisSinceStart / (1000 * 60 * 60)).toFixed(5);
+        document.getElementById("hours").innerText = (millisSinceStart / (1000 * 60 * 60)).toFixed(6);
         document.getElementById("percentage").innerText = ((millisSinceStart / trueDuration) * 100).toFixed(7) + "%"
     }, 10);
 </script>
