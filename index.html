@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Semester time tracker thing</title>
+    <title>Semester Break</title>
     <style>
         body {
             background: white;
@@ -67,6 +67,7 @@
             background: #c3e4ff;
             color: aliceblue;
         }
+
     </style>
 </head>
 <body>
@@ -75,8 +76,11 @@
         <strong id="percentage"></strong> of the fall semester has already passed.
     </h1>
     <h6>
-        This is <strong id="hours">${hours}</strong> out of <strong id="total">${total}</strong> hours
+        This is <strong id="hours"></strong> out of <strong id="total">${total}</strong> hours
     </h6>
+    <div id="progress-bar">
+        <div id="myBar"></div>
+    </div>
 </div>
 <div class="bottom">
     <p>
@@ -88,17 +92,18 @@
 </div>
 <script>
     const percentage = document.getElementById("percentage");
+    const hours = document.getElementById("hours")
     const start = new Date(2022, 7, 17, 7, 15);
     const end = new Date(2022, 11, 15, 2, 35);
     let trueDuration = end - start;
-    document.getElementById("total").innerText = (trueDuration / (1000 * 60 * 60)).toFixed(5);
-    const github = () => open("https://gist.github.com/croissant676/688c95b60c070dc0ebd31287f428577b");
+    document.getElementById("total").innerText = (trueDuration / (1000 * 60 * 60)).toFixed(1);
+    const github = () => open("https://github.com/croissant676/SchoolTracker");
     setInterval(function () {
         const current = new Date();
         let millisSinceStart = current - start;
-        document.getElementById("hours").innerText = (millisSinceStart / (1000 * 60 * 60)).toFixed(6);
-        document.getElementById("percentage").innerText = ((millisSinceStart / trueDuration) * 100).toFixed(7) + "%"
-    }, 10);
+        hours.innerText = (millisSinceStart / (1000 * 60 * 60)).toFixed(6);
+        percentage.innerText = ((millisSinceStart / trueDuration) * 100).toFixed(7) + "%"
+    }, 1);
 </script>
 </body>
 </html>
