@@ -73,7 +73,7 @@
 <body>
 <div class="main">
     <h1>
-        <strong id="percentage"></strong> of the fall semester has already passed.
+        <strong id="percentage"></strong> of the spring semester has already passed.
     </h1>
     <h6>
         This is <strong id="hours"></strong> out of <strong id="total">${total}</strong> hours
@@ -93,8 +93,8 @@
 <script>
     const percentage = document.getElementById("percentage");
     const hours = document.getElementById("hours")
-    const start = new Date(2022, 7, 17, 7, 15);
-    const end = new Date(2022, 11, 15, 2, 35);
+    const start = new Date(2022, 0, 3, 7, 15);
+    const end = new Date(2022, 4, 25, 2, 35);
     let trueDuration = end - start;
     document.getElementById("total").innerText = (trueDuration / (1000 * 60 * 60)).toFixed(1);
     const github = () => open("https://github.com/croissant676/SchoolTracker");
