@@ -4,110 +4,117 @@
     <meta charset="UTF-8">
     <title>Semester Break</title>
     <style>
+        .m, body {
+            padding: 10%
+        }
+
+        body, button {
+            font-family: Dubai, sans-serif;
+            text-align: center
+        }
+
+        button, p {
+            padding: 5px;
+            font-size: 20px;
+            background: #fff;
+            transition: .6s ease-out;
+            width: auto
+        }
+
+        .m:hover, button:hover, p:hover {
+            background: #c3e4ff
+        }
+
         body {
-            background: white;
-            font-family: 'Dubai', sans-serif;
-            text-align: center;
-            padding: 10%;
+            background: #fff;
             margin: 0 auto;
-            transition: 0.6s ease-out;
+            transition: .6s ease-out
         }
 
-        .main {
-            background: aliceblue;
-            padding: 10%;
-            transition: 0.6s ease-out;
-        }
-
-        .main:hover {
-            background: #c3e4ff;
+        .m {
+            background: #f0f8ff;
+            transition: .6s ease-out
         }
 
         strong {
-            color: orange;
+            color: orange
         }
 
         h6 {
-            font-size: 20px;
+            font-size: 20px
         }
 
-        .bottom {
+        .b {
             padding: 1%;
             display: flex;
             width: 100%;
             height: 100%;
             justify-content: center;
-            align-items: center;
-        }
-
-        p {
-            padding: 5px;
-            width: auto;
-            font-size: 20px;
-            transition: 0.6s ease-out;
-            background: white;
-        }
-
-        p:hover {
-            background: #c3e4ff;
+            align-items: center
         }
 
         button {
-            padding: 5px;
-            font-family: 'Dubai', sans-serif;
-            text-align: center;
-            font-size: 20px;
-            background: white;
-            border: white solid;
-            transition: 0.6s ease-out;
-            width: auto;
+            border: solid #fff
         }
 
         button:hover {
-            background: #c3e4ff;
-            color: aliceblue;
+            color: #f0f8ff
         }
-
     </style>
 </head>
 <body>
-    <span id="genericspanplsplsplsplsl">
-        Displays the percentage of the Spring semester has passed. Might be repurposed for other uses later on.
-        Code is on github, written by Kason Gu.
-    </span>
-<div class="main">
-    <h1>
-        <strong id="percentage"></strong> of the spring semester has already passed.
-    </h1>
-    <h6>
-        This is <strong id="hours"></strong> out of <strong id="total">${total}</strong> hours
-    </h6>
-    <div id="progress-bar">
-        <div id="myBar"></div>
-    </div>
+<div>
+    <button id="t">
+        High School
+    </button>
 </div>
-<div class="bottom">
-    <p>
-        Created by Kason Gu in 2022.
-    </p>
-    <button onclick="github()">
+<div class="m">
+    <h1><strong id="p"></strong></h1>
+    <h2 id="h">
+        of the spring semester has already passed.
+    </h2>
+    <h6>
+        This is <strong id="s"></strong> out of <strong id="l"></strong> hours
+    </h6>
+</div>
+<div class="b">
+    <p>Running since 2022.</p>
+    <button onclick="open('https://github.com/croissant676/SchoolTracker')">
         View source on Github
     </button>
 </div>
 <script>
-    document.getElementById("genericspanplsplsplsplsl").style.display = "none";;
-    const percentage = document.getElementById("percentage");
-    const hours = document.getElementById("hours")
-    const start = new Date(2023, 0, 4, 7, 15);
-    const end = new Date(2023, 4, 25, 11, 35);
-    let trueDuration = end - start;
-    document.getElementById("total").innerText = (trueDuration / (1000 * 60 * 60)).toFixed(1);
-    const github = () => open("https://github.com/croissant676/SchoolTracker");
+    var a = document.getElementById("t"), b = document.getElementById("h"), c = 0,
+        d = new Date(2023, 0, 4, 7, 15),
+        e = new Date(2023, 4, 25, 11, 35), f = e - d;
+    a.onclick = function () {
+        c++;
+        3 === c && (c = 0);
+        switch (c) {
+            case 0:
+                b.innerText = " of the spring semester has already passed.";
+                d = new Date(2023, 0, 4, 7, 15);
+                e = new Date(2023, 4, 25, 11, 35);
+                a.innerText = "High School";
+                break;
+            case 1:
+                b.innerText = " of our high school career (class of 2024) has already passed.";
+                d = new Date(2020, 7, 19, 7, 15, 0);
+                e = new Date(2024, 4, 23, 11, 35, 0);
+                a.innerText = "School Year";
+                break;
+            case 2:
+                b.innerText = " of this school year has already passed.", d = new Date(2022, 7, 17, 7, 15), e = new Date(2023, 4, 25, 11, 35), a.innerText =
+                    "Semester"
+        }
+        f = e - d;
+        document.getElementById("l").innerText = (f / 36E5).toFixed(4)
+    };
+    var h = document.getElementById("p"), k = document.getElementById("s");
     setInterval(function () {
-        const current = new Date();
-        let millisSinceStart = current - start;
-        hours.innerText = (millisSinceStart / (1000 * 60 * 60)).toFixed(6);
-        percentage.innerText = ((millisSinceStart / trueDuration) * 100).toFixed(7) + "%"
+        var g = new Date - d;
+        k.innerText = (g / 36E5).toFixed(6);
+        h.innerText = (g / f * 100).toFixed(9) + "%"
     }, 1);
 </script>
 </body>
